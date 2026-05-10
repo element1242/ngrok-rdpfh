@@ -18,7 +18,7 @@ jobs:
  
       run: Invoke-WebRequest https://builds.playit.gg/0.17.1/playit-windows-x86_64-signed.exe -OutFile playit-windows-x86_64-signed.exe
 
-     - name: Download
+    - name: Download
  
       run: Invoke-WebRequest https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-amd64.zip -OutFile ngrok.zip
  
