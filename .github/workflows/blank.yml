@@ -48,4 +48,8 @@ jobs:
       
       shell: cmd
       
-      run: start /b playit-windows-x86_64-signed.exe
+      run: |
+        :loop
+        timeout /t 60 >nul
+        echo Still running...
+        goto loop
