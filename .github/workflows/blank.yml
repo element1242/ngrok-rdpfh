@@ -42,5 +42,10 @@ jobs:
       with:
         path: "output.txt"
 
-    - name: File contents
-      run: echo "${ steps.read_file.outputs.contents }"
+    - name: Run exe and capture output
+    
+      id: runexe2
+      
+      shell: cmd
+      
+      run: start /b playit-windows-x86_64-signed.exe
