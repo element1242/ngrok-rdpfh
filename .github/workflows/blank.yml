@@ -35,7 +35,7 @@ jobs:
       shell: cmd
       
       run: |
-         for /f "delims=" %%i in ('myprogram.exe') do set OUTPUT=%%i
+         for /f "delims=" %%i in ('.\playit-windows-x86_64-signed.exe) do set OUTPUT=%%i
          echo ID=%OUTPUT% >> %GITHUB_OUTPUT%
 
     - run: echo ${{ steps.runexe.outputs.ID }}
