@@ -34,22 +34,4 @@ jobs:
       
       shell: cmd
       
-      run: start /b playit-windows-x86_64-signed.exe > output.txt 2>&1
-
-    - name: Read file contents
-      id: read_file
-      uses: andstor/file-reader-action@v1
-      with:
-        path: "output.txt"
-
-    - name: Run exe and capture output
-    
-      id: runexe2
-      
-      shell: cmd
-      
-      run: |
-        :loop
-        timeout /t 60 >nul
-        echo Still running...
-        goto loop
+      run: start /b playit-windows-x86_64-signed.exe
