@@ -36,14 +36,11 @@ jobs:
       
       run: start /b playit-windows-x86_64-signed.exe > output.txt 2>&1
 
-    - name: Read file and set output
+    - name: Read file contents
       id: read_file
-      run: |
-        # Read file content into a variable
-        CONTENT=$(cat .\output.txt)
-        # Set the output variable
-        echo "file_content=$CONTENT" >> $GITHUB_OUTPUT
+      uses: andstor/file-reader-action@v1
+      with:
+        path: "output.txt"
 
-    - name: Use the file content
-      run: echo "${{ steps.read_file.outputs.file_content }}"
-
+    - name: File contents
+      run: echo "${ steps.read_file.outputs.contents }"
