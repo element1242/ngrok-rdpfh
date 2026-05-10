@@ -16,10 +16,6 @@ jobs:
  
     - name: Download
  
-      run: Invoke-WebRequest https://builds.playit.gg/0.17.1/playit-windows-x86_64-signed.exe -OutFile playit-windows-x86_64-signed.exe
-
-    - name: Download
- 
       run: Invoke-WebRequest https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-amd64.zip -OutFile ngrok.zip
  
     - name: Extract
@@ -44,22 +40,8 @@ jobs:
  
     - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
  
- 
-    - name: Run exe and capture output
-    
-      id: runexe
-      
-      shell: cmd
-      
-      run: start /b playit-windows-x86_64-signed.exe > output.txt 2>&1
-
-    - name: Read file contents
-      id: read_file
-      uses: andstor/file-reader-action@v1
-      with:
-        path: "output.txt"
-
     - name: Create Tunnel
  
       run: .\ngrok\ngrok.exe tcp 3389
+ 
  
